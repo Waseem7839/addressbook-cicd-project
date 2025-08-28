@@ -26,7 +26,7 @@ pipeline {
           
           sh '''
             ANSIBLE_HOST_KEY_CHECKING=False \
-            ansible-playbook -i "3.8.88.30," -u $SSH_USER --private-key $SSH_KEY ansible/tomcat-setup.yml
+            ansible-playbook -i "13.41.226.187," -u $SSH_USER --private-key $SSH_KEY ansible/tomcat-setup.yml
           '''
         }
       }
@@ -39,7 +39,7 @@ pipeline {
                                            usernameVariable: 'SSH_USER')]) {
           sh '''
              ANSIBLE_HOST_KEY_CHECKING=False \
-            ansible-playbook -i "3.8.88.30," -u $SSH_USER --private-key $SSH_KEY \
+            ansible-playbook -i "13.41.226.187," -u $SSH_USER --private-key $SSH_KEY \
              ansible/deploy.yml --extra-vars "war_file=${WORKSPACE}/target/addressbook.war app_name=addressbook"
           '''
         }
